@@ -5327,12 +5327,23 @@
   import_core.default.init({
     transitions: [
       {
-        name: "animate",
+        name: "animation",
         async leave(data) {
           await gsapWithCSS.to(data.current.container, { opacity: 0, duration: 0.3 });
         },
         async enter(data) {
           await gsapWithCSS.to(data.next.container, { opacity: 1, duration: 0.3 });
+        }
+      },
+      {
+        name: "contact-animation",
+        to: {
+          namespace: ["contact"]
+        },
+        async enter(data) {
+          console.log(data);
+          data.next.container.classList.add("transition");
+          data.next.container.classList.remove("transition");
         }
       }
     ]
