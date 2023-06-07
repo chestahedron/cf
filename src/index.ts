@@ -1,7 +1,3 @@
-import { greetUser } from '$utils/greet';
+import barba from '@barba/core';
 
-window.Webflow ||= [];
-window.Webflow.push(() => {
-  const name = 'John Doe';
-  greetUser(name);
-});
+barba.init();
