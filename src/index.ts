@@ -1,4 +1,5 @@
 import barba from '@barba/core';
+import { restartWebflow } from '@finsweet/ts-utils';
 import { gsap } from 'gsap';
 
 barba.init({
@@ -15,4 +16,9 @@ barba.init({
       },
     },
   ],
+});
+
+// restart Webflow forms
+barba.hooks.after(async () => {
+  await restartWebflow();
 });
